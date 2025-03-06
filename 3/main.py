@@ -31,8 +31,6 @@ def _solve_problem(data_file):
 
    with open(data_file, 'r') as f:
       # Read data and solve the problem here instead of passing
-      n1_tmp=[]; l2_tmp=[]
-      l1=[]; l2=[]
       f_str = f.read()
       occurrences = re.findall("mul\([0-9][0-9]?[0-9]?\,[0-9][0-9]?[0-9]?\)",f_str)
       total = 0
