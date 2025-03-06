@@ -6,7 +6,7 @@ Script to solve an advent of code problem.
 import os
 import logging
 import sys
-import pandas as pd
+import re
 
 
 def main():
@@ -31,21 +31,15 @@ def _solve_problem(data_file):
 
    with open(data_file, 'r') as f:
       # Read data and solve the problem here instead of passing
-      l1=[]; l2=[];
-      for line in f:
-         l1.append(int(str.split(line)[0]))
-         l2.append(int(str.split(line)[1]))
-      l1.sort()
-      l2.sort()
-      
-      # Pour part 1
-      res_1 = sum([abs(x-y) for x, y in zip(l1, l2)])
-      print(res_1)
-
-      # Pour part 2
-      l1_unique = list(dict.fromkeys(l1))
-      res_2 = sum([x * l2.count(x) for x in l1_unique])
-      print(res_2)
+      n1_tmp=[]; l2_tmp=[]
+      l1=[]; l2=[]
+      f_str = f.read()
+      occurrences = re.findall("mul\([0-9][0-9]?[0-9]?\,[0-9][0-9]?[0-9]?\)",f_str)
+      total = 0
+      for s in occurrences:
+         pair=re.findall("[0-9][0-9]?[0-9]?",s)
+         total+= int(pair[0]) * int(pair[1])
+      print(total)
       pass
 
 if __name__ == "__main__":
