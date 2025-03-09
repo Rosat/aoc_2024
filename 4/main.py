@@ -27,10 +27,6 @@ def _check_data(data_file):
       logging.error("Data file is still empty.")
       sys.exit(1)
 
-def _generate_lines_str() :
-   return 0
-
-
 def _solve_problem_part1(data_file):
    "Function to solve the corresponding advent of code problem using the data in 'data_file'."
    _check_data(data_file)
@@ -60,7 +56,7 @@ def _solve_problem_part1(data_file):
 def _solve_problem_part2(data_file):
    "Function to solve the corresponding advent of code problem using the data in 'data_file'."
    _check_data(data_file)
-   # Solving part 2 with more separators and a for loop
+   # Solving part 2
    with open(data_file, 'r') as f:
 
       # Get the lines and size
@@ -89,7 +85,7 @@ def _solve_problem_part2(data_file):
       f_xmas = [has_match(a,f_matches_desc_origpos) for a in f_matches_asc_origpos]
       total = sum(f_xmas)
       
-      print("Part 1 score : "+str(total))
+      print("Part 2 score : "+str(total))
 
 
 if __name__ == "__main__":
